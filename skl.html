@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="id" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pengumuman Kelulusan SDN Contoh 1 Surabaya</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&amp;family=Source+Sans+3:wght@300;400;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    html, body { height: 100%; margin: 0; }
+    .font-heading { font-family: 'Playfair Display', serif; }
+    .font-body { font-family: 'Source Sans 3', sans-serif; }
+    
+    @keyframes firework {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      50% { opacity: 1; }
+      100% { transform: translateY(-200px) scale(0); opacity: 0; }
+    }
+    @keyframes sparkle {
+      0% { transform: translate(0,0) scale(1); opacity: 1; }
+      100% { transform: translate(var(--tx), var(--ty)) scale(0); opacity: 0; }
+    }
+    .firework-particle {
+      position: absolute;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      animation: sparkle 1.5s ease-out infinite;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in { animation: fadeInUp 0.8s ease-out forwards; }
+    .animate-fade-in-delay { animation: fadeInUp 0.8s ease-out 0.3s forwards; opacity: 0; }
+    
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 20px rgba(234, 179, 8, 0.3); }
+      50% { box-shadow: 0 0 40px rgba(234, 179, 8, 0.6); }
+    }
+    .btn-glow { animation: pulse-glow 2s infinite; }
+    
+    .fireworks-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 50; overflow: hidden; }
+  </style>
+  <style>body { box-sizing: border-box; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full font-body">
+  <div id="app" class="h-full w-full overflow-auto relative"><!-- Landing Page -->
+   <div id="landing-page" class="min-h-full w-full relative" style="background: linear-gradient(135deg, #1a2332 0%, #2d3f54 40%, #1a2332 100%);"><!-- Decorative school pattern overlay -->
+    <div class="absolute inset-0 opacity-5" style="background-image: repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,0.1) 35px, rgba(255,255,255,0.1) 70px);"></div><!-- Header bar -->
+    <div class="relative z-10 w-full py-4 px-6 flex items-center justify-center border-b border-yellow-600/30" style="background: linear-gradient(90deg, rgba(120,80,0,0.3), rgba(180,130,20,0.2), rgba(120,80,0,0.3));">
+     <div class="flex items-center gap-3"><img src="https://scontent.fsrg6-1.fna.fbcdn.net/v/t39.30808-6/682775994_. 68_. 010_n.jpg?_nc_cat=107&amp;ccb=1-7&amp;_nc_sid=13d280&amp;_nc_eui2=AeG-tST4x4Fr-b5cOG8RpepG8SZma-jOCxrxJmZr6M4LGp_Hfbanq67CJG04k6S6JiDlbk4gYlAvna_qWHSkKr6C&amp;_nc_ohc=--xogg_1INUQ7kNvwFjXDj1&amp;_nc_oc=Adqs_Esxg5drNoHxj-h2zT2kIWul8kFm-qgO5GwSu4ITksFceS4WjQ9Lbx9nMzGkHbsyeloHTTPRF3MSHw0b6X8Z&amp;_nc_zt=23&amp;_nc_ht=scontent.fsrg6-1.fna&amp;_nc_gid=4wGmn0odwobGfMlu8JUnfA&amp;_nc_ss=7b2a8&amp;oh=00_Af2OnCXj_xhzr2umwivWaiNg3BrpQzOPNuEf21UB_fGuXw&amp;oe=69F8B9A0" alt="Logo MA Nawa Kartika Mlonggo" class="w-12 h-12 rounded-full object-cover" loading="lazy" onerror="console.error('Logo failed to load:', this.src); this.style.background='#ca8a04'; this.alt='Logo tidak tersedia';">
+      <div>
+       <p id="header-school" class="text-yellow-300 font-heading font-bold text-lg">MA Nawa Kartika Mlonggo</p>
+       <p class="text-yellow-100/60 text-xs tracking-widest uppercase">Tahun Ajaran 2024/2025</p>
+      </div>
+     </div>
+    </div><!-- Main Content -->
+    <div class="relative z-10 max-w-6xl mx-auto px-6 py-12 flex flex-col lg:flex-row items-center gap-10"><!-- Left: Title & Button -->
+     <div class="flex-1 text-center lg:text-left animate-fade-in">
+      <h1 id="main-title" class="font-heading font-900 text-3xl md:text-4xl lg:text-5xl text-white leading-tight mb-4">Pengumuman Kelulusan<br><span class="text-yellow-400">MA Nawa Kartika</span><br>
+        Tahun Ajaran 2025/2026</h1>
+      <p class="text-yellow-100/70 text-lg mb-8">Selamat datang di portal resmi pengumuman kelulusan Kelas XII</p><button id="btn-login" onclick="showLogin()" class="btn-glow inline-flex items-center gap-3 bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-400 hover:to-yellow-500 text-gray-900 font-bold text-xl px-10 py-5 rounded-xl transition-all transform hover:scale-105 shadow-2xl"> <i data-lucide="log-in" class="w-6 h-6"></i> LOGIN untuk Cek Kelulusan </button>
+     </div><!-- Right: Principal Speech -->
+     <div class="flex-1 max-w-lg animate-fade-in-delay">
+      <div class="bg-white/10 backdrop-blur-sm border border-yellow-600/30 rounded-2xl p-8 shadow-2xl">
+       <div class="flex items-center gap-3 mb-5">
+        <div class="w-14 h-14 rounded-full bg-gradient-to-br from-yellow-500 to-yellow-700 flex items-center justify-center"><i data-lucide="user" class="w-7 h-7 text-white"></i>
+        </div>
+        <div>
+         <p class="text-yellow-300 font-bold text-sm uppercase tracking-wider">Sambutan Kepala Madrasah</p>
+         <p id="principal-name" class="text-white font-heading font-bold">Fathul 'Am, S.Ag., M.Si</p>
+        </div>
+       </div>
+       <blockquote class="text-yellow-50/90 leading-relaxed italic border-l-4 border-yellow-500 pl-4">
+        "Selamat dan sukses kepada siswa kelas XII MA NAWA KARTIKA Tahun Pelajaran 2025/2026 yang telah menyelesaikan pendidikan selama tiga tahun dengan penuh semangat dan dedikasi. Semoga ilmu yang didapat menjadi bekal yang berharga untuk jenjang berikutnya. Kami bangga atas perjuangan kalian semua!"
+       </blockquote>
+       <div class="mt-8 pt-8 border-t border-yellow-600/30">
+        <div class="flex items-center gap-3 mb-5">
+         <div class="w-14 h-14 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center"><i data-lucide="user" class="w-7 h-7 text-white"></i>
+         </div>
+         <div>
+          <p class="text-blue-300 font-bold text-sm uppercase tracking-wider">Sambutan Wali Kelas XII</p>
+          <p class="text-white font-heading font-bold">Siti Maisaroh, S.Pd</p>
+         </div>
+        </div>
+        <blockquote class="text-yellow-50/90 leading-relaxed italic border-l-4 border-blue-500 pl-4">
+         "Assalamu'alaikum Warahmatullahi Wabarakatuh, selamat pagi dan salam sejahtera untuk kita semua. Anak-anakku kelas 12 yang saya banggakan, hari ini bukan sekadar akhir dari masa sekolah, tapi awal dari perjalanan yang sesungguhnya. Selama tiga tahun ini, Bapak/Ibu telah melihat kalian tumbuh, berproses, dan berjuang. Jangan pernah berhenti belajar. Dunia di luar sana sangat luas, namun dengan bekal karakter dan ilmu yang kalian miliki, Bapak/Ibu yakin kalian mampu menaklukkannya. Selamat atas kelulusan kalian. Kejarlah mimpi kalian setinggi langit, tapi tetaplah membumi."
+        </blockquote>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div><!-- Login Page (hidden) -->
+   <div id="login-page" class="min-h-full w-full hidden relative" style="background: linear-gradient(135deg, #1a2332 0%, #2d3f54 40%, #1a2332 100%);">
+    <div class="absolute inset-0 opacity-5" style="background-image: repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,0.1) 35px, rgba(255,255,255,0.1) 70px);"></div>
+    <div class="relative z-10 min-h-full flex items-center justify-center px-6 py-12">
+     <div class="bg-white/10 backdrop-blur-sm border border-yellow-600/30 rounded-2xl p-10 w-full max-w-md shadow-2xl animate-fade-in">
+      <div class="text-center mb-8">
+       <div class="w-16 h-16 rounded-full bg-yellow-600 flex items-center justify-center mx-auto mb-4"><i data-lucide="shield-check" class="w-8 h-8 text-white"></i>
+       </div>
+       <h2 class="font-heading font-bold text-2xl text-white">Cek Kelulusan</h2>
+       <p class="text-yellow-100/60 mt-1">Masukkan NISN dan Password Anda</p>
+      </div>
+      <form id="login-form" onsubmit="handleLogin(event)">
+       <div class="mb-5"><label for="nisn" class="block text-yellow-300 text-sm font-semibold mb-2">NISN</label> <input type="text" id="nisn" placeholder="Masukkan NISN" class="w-full px-4 py-3 rounded-lg bg-white/10 border border-yellow-600/40 text-white placeholder-yellow-100/40 focus:outline-none focus:border-yellow-400 focus:ring-2 focus:ring-yellow-400/30 transition">
+       </div>
+       <div class="mb-6"><label for="password" class="block text-yellow-300 text-sm font-semibold mb-2">Password</label> <input type="password" id="password" placeholder="Masukkan Password" class="w-full px-4 py-3 rounded-lg bg-white/10 border border-yellow-600/40 text-white placeholder-yellow-100/40 focus:outline-none focus:border-yellow-400 focus:ring-2 focus:ring-yellow-400/30 transition">
+       </div>
+       <div id="login-error" class="hidden mb-4 p-3 bg-red-500/20 border border-red-400/40 rounded-lg text-red-200 text-sm text-center"></div><button type="submit" class="w-full bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-400 hover:to-yellow-500 text-gray-900 font-bold py-4 rounded-lg transition-all transform hover:scale-[1.02] shadow-xl text-lg"> MASUK </button>
+      </form><button onclick="showLanding()" class="mt-4 w-full text-yellow-300/70 hover:text-yellow-300 text-sm flex items-center justify-center gap-1 transition"> <i data-lucide="arrow-left" class="w-4 h-4"></i> Kembali </button>
+     </div>
+    </div>
+   </div><!-- Result Page (hidden) -->
+   <div id="result-page" class="min-h-full w-full hidden relative" style="background: linear-gradient(135deg, #1a2332 0%, #2d3f54 40%, #1a2332 100%);">
+    <div class="absolute inset-0 opacity-5" style="background-image: repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,0.1) 35px, rgba(255,255,255,0.1) 70px);"></div>
+    <div class="relative z-10 min-h-full flex items-center justify-center px-6 py-12">
+     <div id="result-card" class="bg-white/10 backdrop-blur-sm border border-yellow-600/30 rounded-2xl p-10 w-full max-w-lg shadow-2xl animate-fade-in text-center">
+     </div>
+    </div>
+    <div id="fireworks" class="fireworks-container hidden"></div>
+   </div>
+  </div>
+  <script>
+    // Student data
+    const students = [
+      { nisn: "0086502897", password: "MaNakar26", nama: "TIARA RAHMADANI", status: "LULUS", skl: "https://drive.google.com/file/d/18t9jPi3RWIlVE9QzL80uF4jwA7IvEWBH/view?usp=drive_link" },
+      { nisn: "0063615797", password: "MaNakar27", nama: "RANDY SYAMSUL MA'ARIF", status: "LULUS", skl: "https://drive.google.com/file/d/1n7lIWsX9NvL7_mUaoDpcyfu9CZ2bMLSf/view?usp=drive_link" },
+      { nisn: "0069436180", password: "MaNakar28", nama: "RACHMAD DENNIS SETYAWAN", status: "LULUS", skl: "https://drive.google.com/file/d/18t9jPi3RWIlVE9QzL80uF4jwA7IvEWBH/view?usp=drive_link" },
+      { nisn: "0089568987", password: "MaNakar29", nama: "RISTA ROSALIA", status: "LULUS", skl: "https://drive.google.com/file/d/1n7lIWsX9NvL7_mUaoDpcyfu9CZ2bMLSf/view?usp=drive_link" },
+      { nisn: "3075791764", password: "MaNakar30", nama: "EVA MAULIDIYA SAFITRI", status: "LULUS", skl: "https://drive.google.com/file/d/18t9jPi3RWIlVE9QzL80uF4jwA7IvEWBH/view?usp=drive_link" },
+      { nisn: "0078609289", password: "MaNakar31", nama: "ISTIFAIZAH", status: "LULUS", skl: "https://drive.google.com/file/d/1n7lIWsX9NvL7_mUaoDpcyfu9CZ2bMLSf/view?usp=drive_link" },
+      { nisn: "0077011052", password: "MaNakar32", nama: "RIZKY MAIRANI", status: "LULUS", skl: "https://drive.google.com/file/d/18t9jPi3RWIlVE9QzL80uF4jwA7IvEWBH/view?usp=drive_link" },
+      { nisn: "0075142865", password: "MaNakar33", nama: "KEYSYA DESVITA BUNGA PUTRI PRATAMA", status: "LULUS", skl: "https://drive.google.com/file/d/1n7lIWsX9NvL7_mUaoDpcyfu9CZ2bMLSf/view?usp=drive_link" },
+      { nisn: "0086985129", password: "MaNakar34", nama: "NUR AFIFAH", status: "LULUS", skl: "https://drive.google.com/file/d/18t9jPi3RWIlVE9QzL80uF4jwA7IvEWBH/view?usp=drive_link" },
+      { nisn: "0069101396", password: "MaNakar35", nama: "MUHAMMAD SAROHFIDIN", status: "LULUS", skl: "https://drive.google.com/file/d/1n7lIWsX9NvL7_mUaoDpcyfu9CZ2bMLSf/view?usp=drive_link" },
+      { nisn: "0078618811", password: "MaNakar36", nama: "ARDA EKA SAPUTRA", status: "LULUS", skl: "https://drive.google.com/file/d/18t9jPi3RWIlVE9QzL80uF4jwA7IvEWBH/view?usp=drive_link" },
+      { nisn: "0082011407", password: "MaNakar37", nama: "FENY FUTIKHATIN NIHAYAH", status: "LULUS", skl: "https://drive.google.com/file/d/1n7lIWsX9NvL7_mUaoDpcyfu9CZ2bMLSf/view?usp=drive_link" },
+      { nisn: "0076770797", password: "MaNakar38", nama: "SAPUTRA DIYO PRATAMA", status: "LULUS", skl: "https://drive.google.com/file/d/18t9jPi3RWIlVE9QzL80uF4jwA7IvEWBH/view?usp=drive_link" },
+      { nisn: "3086727245", password: "MaNakar39", nama: "AFIF SYARIFUDIN NUR AMMAR", status: "LULUS", skl: "https://drive.google.com/file/d/1n7lIWsX9NvL7_mUaoDpcyfu9CZ2bMLSf/view?usp=drive_link" },
+      { nisn: "0075160163", password: "MaNakar40", nama: "MUHAMMAD AWALUDIN", status: "LULUS", skl: "https://drive.google.com/file/d/1n7lIWsX9NvL7_mUaoDpcyfu9CZ2bMLSf/view?usp=drive_link" },
+      { nisn: "0077126094", password: "MaNakar41", nama: "DANDI PRAYOGO", status: "LULUS", skl: "https://drive.google.com/file/d/1n7lIWsX9NvL7_mUaoDpcyfu9CZ2bMLSf/view?usp=drive_link" },
+      { nisn: "0072960493", password: "MaNakar42", nama: "SENJA ANDHIKA APRIANSYAH", status: "LULUS", skl: "https://drive.google.com/file/d/1n7lIWsX9NvL7_mUaoDpcyfu9CZ2bMLSf/view?usp=drive_link" },
+      { nisn: "0076757864", password: "MaNakar43", nama: "KAILA LIA AMANDITA", status: "LULUS", skl: "https://drive.google.com/file/d/1n7lIWsX9NvL7_mUaoDpcyfu9CZ2bMLSf/view?usp=drive_link" },
+      { nisn: "0078624848", password: "MaNakar44", nama: "KUNAFAH", status: "LULUS", skl: "https://drive.google.com/file/d/1n7lIWsX9NvL7_mUaoDpcyfu9CZ2bMLSf/view?usp=drive_link" },
+      { nisn: "0089015438", password: "MaNakar45", nama: "GALANG AKBAR PRASETYO", status: "LULUS", skl: "https://drive.google.com/file/d/1n7lIWsX9NvL7_mUaoDpcyfu9CZ2bMLSf/view?usp=drive_link" },
+      { nisn: "0075674443", password: "MaNakar46", nama: "AHMAD SYAIKHU FADILAH", status: "LULUS", skl: "https://drive.google.com/file/d/1n7lIWsX9NvL7_mUaoDpcyfu9CZ2bMLSf/view?usp=drive_link" },
+      { nisn: "0067909552", password: "MaNakar47", nama: "DAVIN RASYA ISLAMI PASHA", status: "LULUS", skl: "https://drive.google.com/file/d/1n7lIWsX9NvL7_mUaoDpcyfu9CZ2bMLSf/view?usp=drive_link" },
+      { nisn: "0082352083", password: "MaNakar48", nama: "TYAS ANANDA PUTRI", status: "LULUS", skl: "https://drive.google.com/file/d/1n7lIWsX9NvL7_mUaoDpcyfu9CZ2bMLSf/view?usp=drive_link" },
+      { nisn: "0072342812", password: "MaNakar49", nama: "CHIKA DWI SAFITRI", status: "LULUS", skl: "https://drive.google.com/file/d/1n7lIWsX9NvL7_mUaoDpcyfu9CZ2bMLSf/view?usp=drive_link" }
+    ];
+
+    function showLogin() {
+      document.getElementById('landing-page').classList.add('hidden');
+      document.getElementById('login-page').classList.remove('hidden');
+      document.getElementById('result-page').classList.add('hidden');
+    }
+
+    function showLanding() {
+      document.getElementById('landing-page').classList.remove('hidden');
+      document.getElementById('login-page').classList.add('hidden');
+      document.getElementById('result-page').classList.add('hidden');
+    }
+
+    function handleLogin(e) {
+      e.preventDefault();
+      const nisn = document.getElementById('nisn').value.trim();
+      const pass = document.getElementById('password').value.trim();
+      const errEl = document.getElementById('login-error');
+      
+      const student = students.find(s => s.nisn === nisn && s.password === pass);
+      if (!student) {
+        errEl.textContent = "NISN atau Password salah. Silakan coba lagi.";
+        errEl.classList.remove('hidden');
+        return;
+      }
+      errEl.classList.add('hidden');
+      showResult(student);
+    }
+
+    function showResult(student) {
+      document.getElementById('login-page').classList.add('hidden');
+      document.getElementById('result-page').classList.remove('hidden');
+      
+      const card = document.getElementById('result-card');
+      const isLulus = student.status === "LULUS";
+      
+      card.innerHTML = `
+        <div class="mb-6">
+          <div class="w-20 h-20 rounded-full ${isLulus ? 'bg-gradient-to-br from-green-400 to-emerald-600' : 'bg-gradient-to-br from-red-400 to-red-600'} flex items-center justify-center mx-auto mb-4">
+            <i data-lucide="${isLulus ? 'award' : 'x-circle'}" class="w-10 h-10 text-white"></i>
+          </div>
+          <h2 class="font-heading font-bold text-3xl text-white mb-2">${student.nama}</h2>
+          <p class="text-yellow-100/60 text-sm">NISN: ${student.nisn}</p>
+        </div>
+        <div class="py-4 px-6 rounded-xl mb-6 ${isLulus ? 'bg-green-500/20 border border-green-400/40' : 'bg-red-500/20 border border-red-400/40'}">
+          <p class="text-sm ${isLulus ? 'text-green-300' : 'text-red-300'} uppercase tracking-widest font-semibold mb-1">Status Kelulusan</p>
+          <p class="text-4xl font-heading font-900 ${isLulus ? 'text-green-300' : 'text-red-300'}">${student.status}</p>
+        </div>
+        ${isLulus ? `
+        <p class="text-yellow-50/80 mb-6">Selamat! Anda dinyatakan <strong>LULUS</strong>. Silakan unduh Surat Keterangan Lulus (SKL) di bawah ini.</p>
+        <a href="${student.skl}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-400 hover:to-yellow-500 text-gray-900 font-bold px-8 py-4 rounded-lg transition-all transform hover:scale-105 shadow-xl">
+          <i data-lucide="download" class="w-5 h-5"></i> Unduh SKL
+        </a>` : `<p class="text-yellow-50/80">Mohon hubungi pihak sekolah untuk informasi lebih lanjut.</p>`}
+        <button onclick="showLanding()" class="mt-6 text-yellow-300/70 hover:text-yellow-300 text-sm flex items-center justify-center gap-1 transition mx-auto">
+          <i data-lucide="arrow-left" class="w-4 h-4"></i> Kembali ke Beranda
+        </button>
+      `;
+      lucide.createIcons();
+      
+      if (isLulus) {
+        startFireworks();
+      }
+    }
+
+    function startFireworks() {
+      const container = document.getElementById('fireworks');
+      container.classList.remove('hidden');
+      container.innerHTML = '';
+      
+      const colors = ['#fbbf24','#f59e0b','#ef4444','#22c55e','#3b82f6','#a855f7','#ec4899'];
+      
+      function createBurst(x, y) {
+        for (let i = 0; i < 20; i++) {
+          const p = document.createElement('div');
+          p.className = 'firework-particle';
+          const angle = (Math.PI * 2 / 20) * i;
+          const dist = 60 + Math.random() * 80;
+          p.style.left = x + 'px';
+          p.style.top = y + 'px';
+          p.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+          p.style.setProperty('--tx', Math.cos(angle) * dist + 'px');
+          p.style.setProperty('--ty', Math.sin(angle) * dist + 'px');
+          p.style.animationDelay = Math.random() * 0.3 + 's';
+          container.appendChild(p);
+          setTimeout(() => p.remove(), 2000);
+        }
+      }
+
+      let count = 0;
+      const interval = setInterval(() => {
+        const x = Math.random() * window.innerWidth;
+        const y = Math.random() * window.innerHeight * 0.6;
+        createBurst(x, y);
+        count++;
+        if (count > 15) { clearInterval(interval); setTimeout(() => container.classList.add('hidden'), 2000); }
+      }, 400);
+    }
+
+    // Element SDK
+    const defaultConfig = {
+      main_title: "Pengumuman Kelulusan SDN Contoh 1 Surabaya Tahun Ajaran 2024/2025",
+      school_name: "SDN Contoh 1 Surabaya",
+      principal_name: "Fathul 'Am, S.Ag., M.Si",
+      background_color: "#1a2332",
+      surface_color: "#ffffff1a",
+      text_color: "#ffffff",
+      primary_action: "#eab308",
+      secondary_action: "#fde047"
+    };
+
+    window.elementSdk.init({
+      defaultConfig,
+      onConfigChange: async (config) => {
+        document.getElementById('header-school').textContent = config.school_name || defaultConfig.school_name;
+        document.getElementById('principal-name').textContent = config.principal_name || defaultConfig.principal_name;
+        
+        const font = config.font_family || 'Source Sans 3';
+        document.body.style.fontFamily = `${font}, sans-serif`;
+        
+        if (config.font_size) {
+          const base = config.font_size;
+          document.body.style.fontSize = base + 'px';
+        }
+      },
+      mapToCapabilities: (config) => ({
+        recolorables: [
+          { get: () => config.background_color || defaultConfig.background_color, set: (v) => { config.background_color = v; window.elementSdk.setConfig({ background_color: v }); } },
+          { get: () => config.text_color || defaultConfig.text_color, set: (v) => { config.text_color = v; window.elementSdk.setConfig({ text_color: v }); } },
+          { get: () => config.primary_action || defaultConfig.primary_action, set: (v) => { config.primary_action = v; window.elementSdk.setConfig({ primary_action: v }); } }
+        ],
+        borderables: [],
+        fontEditable: { get: () => config.font_family || 'Source Sans 3', set: (v) => { config.font_family = v; window.elementSdk.setConfig({ font_family: v }); } },
+        fontSizeable: { get: () => config.font_size || 16, set: (v) => { config.font_size = v; window.elementSdk.setConfig({ font_size: v }); } }
+      }),
+      mapToEditPanelValues: (config) => new Map([
+        ["main_title", config.main_title || defaultConfig.main_title],
+        ["school_name", config.school_name || defaultConfig.school_name],
+        ["principal_name", config.principal_name || defaultConfig.principal_name]
+      ])
+    });
+
+    lucide.createIcons();
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9f43d47ff274f8dc',t:'MTc3NzUyMzYyNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
